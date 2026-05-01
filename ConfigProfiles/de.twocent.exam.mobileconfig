@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Example Configuration Profile – deploy via Jamf Pro
+  ─────────────────────────────────────────────────────
+  Scope this profile to the devices/groups that should be in exam mode.
+  The daemon reads ExamModeEnabled from the managed preference layer
+  (kCFPreferencesAnyUser / kCFPreferencesCurrentHost).
+
+  To ENABLE exam mode:  deploy this profile   → key = true
+  To DISABLE exam mode: remove this profile   → key absent → daemon deactivates
+                     OR deploy with key=false → daemon deactivates immediately
+
+  Replace UUIDs and Jamf placeholders before production use.
+-->
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <dict>
+            <key>PayloadType</key>
+            <string>com.apple.ManagedClient.preferences</string>
+
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+
+            <key>PayloadIdentifier</key>
+            <string>de.twocent.exam.exammode</string>
+
+            <key>PayloadUUID</key>
+            <!-- Replace with a freshly generated UUID in production -->
+            <string>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</string>
+
+            <key>de.twocent.exam</key>
+            <dict>
+                <key>Forced</key>
+                <array>
+                    <dict>
+                        <key>mcx_preference_settings</key>
+                        <dict>
+                            <key>ExamModeEnabled</key>
+                            <true/>
+
+                            <key>ExamProxyBackend</key>
+                            <string>internal</string>
+
+                            <key>ExamProxyWhitelist</key>
+                            <array>
+                                <string>moodle.example.edu</string>
+                                <string>pruefungen.example.edu</string>
+                            </array>
+
+                            <key>ExamVerboseLogging</key>
+                            <false/>
+
+                            <key>ExamStatusEAName</key>
+                            <string>Exam Mode</string>
+
+                            <key>JamfAPIClientID</key>
+                            <string>__JAMF_CLIENT_ID__</string>
+
+                            <key>JamfAPIClientSecret</key>
+                            <string>__JAMF_CLIENT_SECRET__</string>
+                        </dict>
+                    </dict>
+                </array>
+            </dict>
+        </dict>
+    </array>
+
+    <key>PayloadDescription</key>
+    <string>Activates exam mode with the built-in Swift proxy and optional direct Jamf EA updates.</string>
+
+    <key>PayloadDisplayName</key>
+    <string>ExamManager – Managed Settings</string>
+
+    <key>PayloadIdentifier</key>
+    <string>de.twocent.exam</string>
+
+    <key>PayloadOrganization</key>
+    <string>TwoCent</string>
+
+    <key>PayloadRemovalDisallowed</key>
+    <false/>
+
+    <key>PayloadType</key>
+    <string>Configuration</string>
+
+    <key>PayloadUUID</key>
+    <string>B2C3D4E5-F6A7-8901-BCDE-F12345678901</string>
+
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+</dict>
+</plist>

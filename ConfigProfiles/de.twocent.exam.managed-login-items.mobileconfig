@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Example Managed Login Items profile for ExamManager.
+
+  Replace both UUIDs before production use. The TeamIdentifier value is set to
+  the current Developer ID team so matching ExamManager background items can be
+  auto-enabled and auto-allowed on managed Macs.
+
+  This payload follows Apple's Managed Login Items payload family
+  (com.apple.servicemanagement). The concrete rule keys are based on Apple's
+  Rule type / Rule value model for ServiceManagementManagedLoginItems.
+-->
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>Rules</key>
+      <array>
+        <dict>
+          <key>Comment</key>
+          <string>Allow ExamManager managed login items and background tasks.</string>
+          <key>RuleType</key>
+          <string>BundleIdentifier</string>
+          <key>RuleValue</key>
+          <string>de.twocent.exam.daemon</string>
+          <key>TeamIdentifier</key>
+          <string>KP5T66DWT2</string>
+        </dict>
+      </array>
+
+      <key>PayloadIdentifier</key>
+      <string>de.twocent.exam.managed-login-items</string>
+      <key>PayloadType</key>
+      <string>com.apple.servicemanagement</string>
+      <key>PayloadUUID</key>
+      <string>43A78E11-91A0-4260-BF55-9708D478A001</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+    </dict>
+  </array>
+
+  <key>PayloadDescription</key>
+  <string>Example Managed Login Items profile for ExamManager.</string>
+  <key>PayloadDisplayName</key>
+  <string>ExamManager – Managed Login Items</string>
+  <key>PayloadIdentifier</key>
+  <string>de.twocent.exam.managed-login-items.profile</string>
+  <key>PayloadOrganization</key>
+  <string>TwoCent</string>
+  <key>PayloadRemovalDisallowed</key>
+  <false/>
+  <key>PayloadType</key>
+  <string>Configuration</string>
+  <key>PayloadUUID</key>
+  <string>DF564B9F-8B75-4AA1-B2E8-8B2919F2A001</string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+</dict>
+</plist>

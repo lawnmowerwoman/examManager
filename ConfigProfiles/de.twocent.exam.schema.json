@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/schemas/de.twocent.exam.schema.json",
+  "title": "ExamManager Managed Preferences",
+  "description": "Schema for the managed preference payload consumed by exam-manager-daemon.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ExamModeEnabled": {
+      "type": "boolean",
+      "description": "Enables or disables exam mode."
+    },
+    "ExamProxyBackend": {
+      "type": "string",
+      "description": "Selects the proxy backend. `proxyless` activates exam mode without a running proxy process and only allows bypass-listed destinations.",
+      "enum": ["internal", "tinyproxy", "proxyless"]
+    },
+    "ExamProxyWhitelist": {
+      "type": "array",
+      "description": "Additional allowlist host patterns delivered through the managed profile. These entries are merged with the built-in Jamf and Apple defaults.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "ExamVerboseLogging": {
+      "type": "boolean",
+      "description": "Enables verbose proxy and runtime diagnostics. Leave disabled for normal test and production use."
+    },
+    "ExamStatusEAName": {
+      "type": "string",
+      "description": "Display name of the Jamf extension attribute used for exam mode status.",
+      "default": "Exam Mode",
+      "minLength": 1
+    },
+    "JamfAPIClientID": {
+      "type": "string",
+      "description": "OAuth client ID for direct Jamf Pro API access. Required privileges: Update Computer Extension Attributes, Update Computers, Read Computers, Read Computer Extension Attributes.",
+      "minLength": 1
+    },
+    "JamfAPIClientSecret": {
+      "type": "string",
+      "description": "OAuth client secret for direct Jamf Pro API access. Required privileges: Update Computer Extension Attributes, Update Computers, Read Computers, Read Computer Extension Attributes.",
+      "minLength": 1
+    }
+  },
+  "required": ["ExamModeEnabled"],
+  "examples": [
+    {
+      "ExamModeEnabled": true,
+      "ExamProxyBackend": "internal",
+      "ExamProxyWhitelist": [
+        "moodle.example.edu",
+        "*.pruefung.example.edu"
+      ],
+      "ExamVerboseLogging": false,
+      "ExamStatusEAName": "Exam Mode",
+      "JamfAPIClientID": "__JAMF_CLIENT_ID__",
+      "JamfAPIClientSecret": "__JAMF_CLIENT_SECRET__"
+    }
+  ]
+}

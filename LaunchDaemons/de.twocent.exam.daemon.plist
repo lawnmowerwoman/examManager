@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Identity -->
+    <key>Label</key>
+    <string>de.twocent.exam.daemon</string>
+
+    <!-- Binary – must be codesigned with de.twocent.exam as Team/Bundle ID -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/exam-manager-daemon</string>
+    </array>
+
+    <!-- Run as root so we can call networksetup and launchctl bootstrap -->
+    <!-- LaunchDaemons run as root by default; no UserName key needed. -->
+
+    <!-- Start immediately when the plist is loaded (bootstrap / boot) -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- launchd restarts the daemon if it exits unexpectedly -->
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>WorkingDirectory</key>
+    <string>/Library/Management</string>
+
+    <!-- Redirect stdout/stderr to a log file for debugging -->
+    <key>StandardOutPath</key>
+    <string>/var/log/exam-manager-daemon.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/var/log/exam-manager-daemon.log</string>
+
+    <!-- Throttle rapid restarts (seconds) -->
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <!-- Allow launchd to deliver SIGTERM and give the daemon a small
+         cleanup window before it falls back to SIGKILL. SIGKILL itself
+         cannot be intercepted by the daemon. -->
+    <key>ExitTimeOut</key>
+    <integer>5</integer>
+</dict>
+</plist>

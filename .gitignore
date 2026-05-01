@@ -1,0 +1,9 @@
+.build/
+/.swiftpm/
+dist/*
+!dist/
+!dist/*.pkg
+.DS_Store
+Packaging/root/usr/local/bin/exam-manager-daemon
+Packaging/root/usr/local/bin/ExamManager_ExamManagerCore.bundle
+Packaging/root/Library/LaunchDaemons/de.twocent.exam.daemon.plist
