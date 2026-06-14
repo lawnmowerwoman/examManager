@@ -1,0 +1,8 @@
+ExamManager
+Copyright 2026 Stefanie Ramroth
+
+Licensed under the Apache License, Version 2.0.
+
+This repository contains the Swift-based ExamManager daemon, configuration
+profile examples, packaging helpers, and the built-in exam proxy used to manage
+exam mode on macOS devices.

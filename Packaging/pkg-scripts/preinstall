@@ -1,0 +1,10 @@
+#!/bin/zsh --no-rcs
+set -euo pipefail
+
+PLIST_PATH="/Library/LaunchDaemons/de.twocent.exam.daemon.plist"
+
+if [[ -f "${PLIST_PATH}" ]]; then
+  /bin/launchctl bootout system "${PLIST_PATH}" 2>/dev/null || true
+fi
+
+exit 0

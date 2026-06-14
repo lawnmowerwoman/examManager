@@ -73,7 +73,7 @@ The current mode is persisted in `/var/db/notaryExam.plist` as `proxyMode`.
 ## Project Structure
 
 ```text
-ExamManager/
+ExamManagerSwift/
 ├── Package.swift
 ├── Sources/
 │   ├── ExamManagerCore/
@@ -101,6 +101,8 @@ ExamManager/
 │       └── main.swift
 ├── LaunchDaemons/
 │   └── de.twocent.exam.daemon.plist
+├── dist/
+│   └── exam-manager-daemon-2.0-1A23d.pkg
 └── ConfigProfiles/
     ├── de.twocent.exam.mobileconfig
     └── de.twocent.exam.example.mobileconfig

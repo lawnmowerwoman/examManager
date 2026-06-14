@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Prüfungsmodus aktiv</title>
+  <desc id="desc">Illustration für gesperrte Webseiten im Prüfungsmodus.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dff3f1"/>
+      <stop offset="100%" stop-color="#f8fbfc"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#123847"/>
+      <stop offset="100%" stop-color="#1d5b68"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g transform="translate(180 130)">
+    <rect x="0" y="0" width="1240" height="640" rx="34" fill="white" opacity="0.9"/>
+    <rect x="80" y="70" width="1080" height="470" rx="28" fill="url(#screen)"/>
+    <circle cx="620" cy="305" r="132" fill="#f7fbfc" opacity="0.14"/>
+    <path d="M620 180c-51 0-92 41-92 92v46h-28c-20 0-36 16-36 36v120c0 20 16 36 36 36h240c20 0 36-16 36-36V354c0-20-16-36-36-36h-28v-46c0-51-41-92-92-92zm0 48c25 0 44 19 44 44v46h-88v-46c0-25 19-44 44-44z" fill="#ffffff"/>
+    <path d="M160 590h920" stroke="#d8e5e9" stroke-width="20" stroke-linecap="round"/>
+    <path d="M330 690h580" stroke="#9ab6bf" stroke-width="28" stroke-linecap="round"/>
+    <g transform="translate(120 575)">
+      <rect width="360" height="82" rx="20" fill="#e9f2f4"/>
+      <text x="36" y="52" font-family="Helvetica, Arial, sans-serif" font-size="34" fill="#1d5b68">Prüfungsmodus aktiv</text>
+    </g>
+    <g transform="translate(530 575)">
+      <rect width="540" height="82" rx="20" fill="#eff6f7"/>
+      <text x="34" y="52" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#40616b">Nur freigegebene Ziele sind erreichbar</text>
+    </g>
+  </g>
+</svg>
